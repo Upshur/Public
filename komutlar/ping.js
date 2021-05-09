@@ -12,7 +12,7 @@ exports.run = async (app, message, client) => {
     setInterval(() => {
         
         const ottoman = new Discord.MessageEmbed()
-        .setDescription(`** bot**\nMesaj gecikme süresi; **${diff}ms** \n\n<a:tac:730709347386130522> **Karyus bot**\nBot gecikme süresi; **${API}ms**`)
+        .setDescription(`**public bot**\nMesaj gecikme süresi; **${diff}ms** \n\n<a:tac:730709347386130522> **Karyus bot**\nBot gecikme süresi; **${API}ms**`)
         mesaj.edit(ottoman);
       
     }, 5000)
