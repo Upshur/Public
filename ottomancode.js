@@ -123,7 +123,26 @@ cmember.roles.add(crol.id)
 ckanal.send(`${cmember} kullanıcısına **${crol.name}** rolü verildi.`)
 
 })
-
+client.on("message", async msg => {
+const Database = require("plasma-db");
+const db = new Database("./database.json"); 
+  const gereksiz = await db.fetch(`saas_${msg.guild.id}`);
+  if (gereksiz === "aktif") {
+    if (
+      msg.content.toLowerCase() == "selam" ||
+      msg.content.toLowerCase() == "selamun aleyküm" ||
+      msg.content.toLowerCase() == "s.a" ||
+      msg.content.toLowerCase() == "sea" ||
+      msg.content.toLowerCase() == "sa" ||
+      msg.content.toLowerCase() == "selamm" ||
+      msg.content.toLowerCase() == "saa" ||
+      msg.content.toLowerCase() == "saaa"
+    )
+        return msg.reply("Aleyküm selam hoşgeldin nasılsın?");
+    } else if (gereksiz === "deaktif") {
+  }
+  if (!gereksiz) return;
+});
 
 
 
