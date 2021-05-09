@@ -100,6 +100,64 @@ client.unload = command => {
         }
     });
 };
+client.on("guildMemberAdd", async cmember => {
+
+if(!cmember.guild) return
+
+if(cmember.user.bot) return
+
+let cveri = await db.fetch(`cotorol.${cmember.guild.id}`)
+
+if(!cveri) return
+
+let ckanal = client.channels.cache.get(cveri.kanal)
+
+let crol = cmember.guild.roles.cache.get(cveri.rol)
+
+if(!ckanal || !crol) return
+
+//ottomancode
+
+cmember.roles.add(crol.id)
+
+ckanal.send(`${cmember} kullanıcısına **${crol.name}** rolü verildi.`)
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 client.elevation = message => {
     if (!message.guild) {
